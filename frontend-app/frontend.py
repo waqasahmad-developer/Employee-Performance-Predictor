@@ -55,7 +55,7 @@ if st.button("Predict"):
 
     # Call the FastAPI prediction endpoint
     try:
-        response = requests.post("https://employee-performance-predictor-tpfm.onrender.com", json=user_input)
+        response = requests.post("https://employee-performance-predictor-tpfm.onrender.com/predict", json=user_input)
         #response = requests.post("http://localhost:8000/predict", json=user_input)
         response.raise_for_status() # Raise an exception for bad status codes (4xx or 5xx)
 
