@@ -1,13 +1,17 @@
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from typing import Literal, Annotated
 import pickle
 import pandas as pd
 import uvicorn
-
-# Load the trained model
 import joblib
-model = joblib.load('model.pkl')
+
+script_dir = os.path.dirname(__file__)
+
+# Construct the full path to model.pkl
+model_path = os.path.join(script_dir, 'model.pkl')
+model = joblib.load(model_path)
 
 # Initialize FastAPI app
 app = FastAPI()
